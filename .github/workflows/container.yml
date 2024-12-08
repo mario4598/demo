@@ -10,4 +10,10 @@ jobs:
           uses: docker/login-action@v1
           with:
             username: ${{ secrets.DOCKER_HUB_USERNAME }}
-            password: ${{ secrets.DOCKER_HUB_TOKEN }}  
+            password: ${{ secrets.DOCKER_HUB_TOKEN }}
+        - name: Build and push to Docker Hub
+          uses: docker/build-push-action@v2
+          with: 
+            context: .
+            push: true
+            tags: m0118878/nextwebapp:latest, m0118878/nextwebapp:${{ github.run_number }}
