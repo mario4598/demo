@@ -1,5 +1,10 @@
 name: Build Next.js web application
 on: push
+
+permissions:
+  contents: write
+  actions: write
+
 jobs:
     build-project:
         name: Build project
