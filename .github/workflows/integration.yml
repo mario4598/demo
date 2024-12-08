@@ -31,4 +31,13 @@ jobs:
               uses: thedoctor0/zip-release@0.7.5
               with:
                 filename: site.zip
+            - name: Create GitHub release
+              uses: actions/create-release@v1
+              with:
+                tag_name: ${{ github.run_number }}
+                release_name: Release ${{ github.run_number }}
+                draft: false
+                prerelease: false
+              env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
